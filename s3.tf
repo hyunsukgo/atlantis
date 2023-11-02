@@ -4,6 +4,6 @@ resource "aws_s3_bucket" "newyear" {
   tags = {
     Name        = "My bucket"
     Environment = "Dev"
-    Creator     = "Hyunseok"
+    Creator     = "TEsT"
   }
 }
