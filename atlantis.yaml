@@ -14,7 +14,7 @@ projects:
       ]
       enabled: true
     apply_requirements: [approved] 
-    workflow: prod      # 아래에 정의된 workflow
+    workflow: prod      # 아래에 정의된 workflowss
 
 
 #### Workflows #####
