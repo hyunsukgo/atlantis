@@ -1,0 +1,52 @@
+version: 3
+automerge: true
+projects:
+
+  # Prod
+  - name: test          # 구분을 위한 이름입니다.
+    dir: terraform/test # 적용을 위한 디렉토리 경로입니다.
+    workspace: default  # 테라폼 workspace 설정입니다.
+    terraform_version: 0.12.18 # 테라폼 버전입니다.
+    autoplan:           # 아래 명시된 파일을 수정했을 때 자동으로 plan 실행
+      when_modified: [  
+        "*.tf",
+        "terraform.tfvars"
+      ]
+      enabled: true
+    apply_requirements: [approved] 
+    workflow: prod      # 아래에 정의된 workflow
+
+
+#### Workflows #####
+#### 여러 Account를 정의하실 수 있습니다. ####
+workflows:
+  # id
+  id:
+    plan:
+      steps:
+      - init:
+          extra_args: [
+            '-upgrade=true'
+          ]
+      - plan:
+    apply:
+      steps:
+      - apply
+
+  # Prod
+  prod:
+    plan:
+      steps:
+      - init:
+          extra_args: [
+            '-backend-config="role_arn=<Assume Role ARN>"',
+            # We want the latest version of module. In most cases we should be pinning our version of a module.
+            '-upgrade=true'
+          ]
+      - plan:
+          extra_args: [
+            "-var 'assume_role_arn=<Assume Role ARN>'"
+          ]
+    apply:
+      steps:
+      - apply
