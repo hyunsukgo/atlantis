@@ -1,5 +1,10 @@
 version: 3
 automerge: true
+
+repoConfig:
+  repos:
+  - allowed_overrides: [workflow]
+  
 projects:
 
   # Prod
@@ -14,7 +19,7 @@ projects:
       ]
       enabled: true
     apply_requirements: [approved]
-    allowed_overrides: [workflow]
+    #allowed_overrides: [workflow]
     workflow: id      # 아래에 정의된 workflowss
 
 
