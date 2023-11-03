@@ -39,14 +39,14 @@ workflows:
       steps:
       - init:
           extra_args: [
-            '-backend-config="role_arn=<Assume Role ARN>"',
+            #'-backend-config="role_arn=<Assume Role ARN>"',
             # We want the latest version of module. In most cases we should be pinning our version of a module.
             '-upgrade=true'
           ]
       - plan:
-          extra_args: [
-            "-var 'assume_role_arn=<Assume Role ARN>'"
-          ]
+          #extra_args: [
+          #  "-var 'assume_role_arn=<Assume Role ARN>'"
+          #]
     apply:
       steps:
       - apply
