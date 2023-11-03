@@ -19,11 +19,11 @@ projects:
     workflow: id      # 아래에 정의된 workflows
 
 repos:
-             - id: https://github.com/hyunsukgo/atlantis
-               apply_requirements: [approved, mergeable]
-               workflow: id
-               allowed_overrides: [workflow]
-               allow_custom_workflows: true
+  - id: https://github.com/hyunsukgo/atlantis
+    apply_requirements: [approved, mergeable]
+    workflow: id
+    allowed_overrides: [workflow]
+    allow_custom_workflows: true
 
 #### Workflows #####
 #### 여러 Account를 정의하실 수 있습니다. ####
