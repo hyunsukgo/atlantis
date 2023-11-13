@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_atlantis_1699838841937-pr-trigger-input-set
+  identifier: Build_atlantis_1699838841937prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: medit
+  pipeline:
+    identifier: Build_atlantis_1699838841937
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
